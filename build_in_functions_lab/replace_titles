@@ -1,0 +1,4 @@
+SELECT 
+	REPLACE(title, 'The', '***')
+FROM books
+WHERE 'The' = SUBSTRING(title, 1, 3)
