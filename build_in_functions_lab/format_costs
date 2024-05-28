@@ -1,0 +1,4 @@
+SELECT 
+	title,
+	ROUND(cost, 3) as modifies_price
+FROM books
