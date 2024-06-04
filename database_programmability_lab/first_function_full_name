@@ -6,3 +6,22 @@ $$
 	END;
 $$
 LANGUAGE plpgsql 
+
+--------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION fn_full_name(varchar, varchar)
+RETURNS VARCHAR AS 
+$$
+	DECLARE 
+		first_name ALIAS FOR $1;
+		last_name ALIAS FOR $2;
+		greeting varchar;
+	BEGIN 
+		greeting := 'Hello ';
+		RETURN CONCAT(greeting, first_name, ' ', last_name);
+	END;
+$$
+LANGUAGE plpgsql
+;
+
+SELECT * FROM fn_full_name('Cvetan', 'Tomov')
