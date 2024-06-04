@@ -42,3 +42,28 @@ LANGUAGE plpgsql
 ;
 
 SELECT * FROM fn_full_name('Cvetan', 'Tomov')
+
+--------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION fn_full_name(first_name varchar, last_name varchar)
+RETURNS VARCHAR AS 
+$$
+	DECLARE
+		full_name varchar(30);
+	BEGIN
+		if first_name is NULL and last_name is null then 
+			full_name := NULL;
+		ELSIF first_name is null then 
+			full_name := last_name;
+		ELSIF last_name is null THEN
+			full_name := first_name;
+		ELSE 
+			full_name := concat(first_name, ' ', last_name);
+		end if;
+		RETURN full_name;
+	END
+$$
+LANGUAGE plpgsql
+;
+
+SELECT * FROM fn_full_name('Cvetan', NULL)
