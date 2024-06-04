@@ -1,0 +1,8 @@
+CREATE OR REPLACE FUNCTION fn_full_name(varchar, varchar)
+RETURNS VARCHAR AS 
+$$
+	BEGIN 
+		RETURN CONCAT($1, ' ', $2);
+	END;
+$$
+LANGUAGE plpgsql 
