@@ -67,3 +67,19 @@ LANGUAGE plpgsql
 ;
 
 SELECT * FROM fn_full_name('Cvetan', NULL)
+
+-------------------------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION fn_get_city_id(IN city_name varchar, OUT city_id int, OUT status int)
+AS
+$$
+	BEGIN
+		SELECT town_id FROM towns WHERE name = city_name INTO city_id;
+		status := 100;
+	END;
+$$
+
+LANGUAGE plpgsql 
+;
+
+SELECT fn_get_city_id('Redmond')
