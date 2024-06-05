@@ -14,7 +14,7 @@ AS
 $$
 	BEGIN
 		INSERT INTO deleted_employees(
-			first_name, last_name, middle_name, job_title, deparment_id, salary
+			first_name, last_name, middle_name, job_title, department_id, salary
 		)
 		VALUES (
 			old.first_name, 
