@@ -41,9 +41,9 @@ CREATE TABLE players (
 	id SERIAL PRIMARY KEY,
 	first_name VARCHAR(10) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
-	age INT DEFAULT 0 check (age > 0) NOT NULL,
+	age INT DEFAULT 0 check (age >= 0) NOT NULL,
 	"position" CHAR(1) NOT NULL,
-	salary NUMERIC(10, 2) DEFAULT 0 NOT NULL check (salary > 0),
+	salary NUMERIC(10, 2) DEFAULT 0 NOT NULL check (salary >= 0),
 	hire_date TIMESTAMP,
 	skills_data_id INT REFERENCES skills_data ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
 	team_id INT REFERENCES teams ON UPDATE CASCADE ON DELETE CASCADE
